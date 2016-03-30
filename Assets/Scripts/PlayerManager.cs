@@ -14,10 +14,13 @@ public class PlayerManager : MonoBehaviour {
 
     private bool stoppedJumping;
 
+    private Animator myAnimator;
+
 
     // Use this for initialization
     void Start () {
         playerRigibody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -52,5 +55,7 @@ public class PlayerManager : MonoBehaviour {
         {
             jumpTimeCounter = jumpTime;
         }
+
+        myAnimator.SetBool("Grounded", grounded);
     }
 }
